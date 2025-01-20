@@ -139,10 +139,12 @@ function analog_get_feeds_link() {
 	elseif( is_post_type_archive() ) {
 		$link = get_post_type_archive_feed_link( $item->name );
 	}
+	elseif( is_month() || is_year() || is_day() ) {
+		$link = "/feed"; // pretty rough, but no error at least
+	}
 	
 	return $link;
 }
-
 
 /**
  * Remove prefix from archive title
